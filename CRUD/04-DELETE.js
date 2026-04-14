@@ -1,4 +1,4 @@
-// 03-DELETE
+//* 04-DELETE
 
 // SYNTAX:
 //      delete ObjectName.key;

@@ -1,4 +1,4 @@
-// 02.READ.js
+//* 02.READ.js
 
 // SYNTAX:
 //      ObjectName.key
