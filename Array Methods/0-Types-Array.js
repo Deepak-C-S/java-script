@@ -9,4 +9,5 @@
 //! 7. join()
 //! 8. includes()
 //! 9. Reverse()
-//! 10. splice()
+//! 10. Sort()
+//! 11. splice()
