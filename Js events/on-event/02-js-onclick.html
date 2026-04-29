@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> hello</h1>
+    <button onclick="genpara()"> Genetare paragraph</button>
+
+
+    <button onclick="genimg()"> click to get image</button>
+
+    <script>
+        function genpara(){
+            let para=document.createElement('p')
+            para.textContent="Hello chaulva is beautiful"
+            document.body.appendChild(para)
+
+        }
+
+        function genimg(){
+            let imgg=document.createElement("img")
+            imgg.src="qrcode.png"
+            imgg.width=200
+            document.body.appendChild(imgg)  
+            document.body.insertAdjacentElement("afterend",imgg)  
+        }
+    </script>
+
+
+</body>
+</html>

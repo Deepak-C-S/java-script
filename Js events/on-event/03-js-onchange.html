@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> welcome to js events</h1>
+    <label> city</label>
+    <select onchange="optcity(event)"> //karnataka
+        <option value="bengaluru"> bengaluru</option>
+        <option value="chikkamagaluru"> chikkamagaluru</option>
+        <option value="kolar"> kolar</option>
+        <option value="mysore"> mysore</option>
+        <option value="hubli"> hubli</option>
+    </select>
+<br> <br>
+    <label> gender</label>
+    <input type="radio" name="gender" value="male" onchange="optgender(event)"> male   
+    <input type="radio" name="gender" value="female" onchange="optgender(event)"> female
+    <input type="radio" name="gender" value="other" onchange="optgender(event)"> other
+   
+    <script>
+       function optcity(event){
+            console.log(event.target.value) 
+            alert("you have selected "+event.target.value) 
+            let citybox=document.createElement("div")
+        }
+
+        function optgender(event){
+            console.log(event.target.value)
+                alert("you have selected "+event.target.value)
+                let genderbox=document.createElement("div")
+        }
+    </script>
+</body>
+</html>

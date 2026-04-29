@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Random Number Generator</h1>
+    <button id="generate">Generate Random Number</button>
+    <p id="result"></p>
+
+    <script>
+        let button=document.getElementById("generate");
+        let result=document.getElementById("result");
+
+        button.addEventListener("click",function(){
+            let randomNum=Math.random() * 6+1; 
+            randomNum=Math.floor(randomNum) ; 
+            result.textContent="Generated Random Number: " + randomNum;
+        });
+    </script>
+</body>
+</html>

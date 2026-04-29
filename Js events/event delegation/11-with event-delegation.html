@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #button{
+            display: flex;  
+            gap: 10px;
+            display: block;
+
+        }
+
+        .btn1{
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <center>
+        <h1> with event delegation</h1>
+        <div id="button"> 
+            <button class="btn1">Button 1</button>
+            <button class="btn1">Button 2</button>
+            <button class="btn1">Button 3</button>
+        </div>
+    </center>
+
+    <script>
+        let btndiv=document.getElementById("button");
+        btndiv.addEventListener("click",function(event){
+            if(event.target.classList.contains("btn1")){
+                alert(event.target.textContent + " Clicked!");
+            }
+        })
+    </script>
+</body>
+</html>

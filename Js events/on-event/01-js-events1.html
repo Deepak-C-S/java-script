@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> welcome to js events</h1>
+    <button onclick="onclick1(event)"> click here</button>
+
+    <script> 
+        function onclick1(event){
+            console.log(event)
+            console.log(event.target)
+            console.log(event.type)
+            console.log(event.target.value)
+            event.target.style.backgroundColor="blue"
+            for (var data in event){
+                console.log(data)
+            }
+            event.target.remove()     
+        }
+    </script>
+</body>
+</html>

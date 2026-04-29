@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #parent {
+            padding: 20px;
+            background-color: lightgray;
+        }
+        #child {
+            padding: 10px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Event Bubbling</h1>
+        <div id="parent">
+            <button id="child">Click Me!</button>
+        </div>
+    </center>
+    <script>
+        let parent=document.getElementById("parent");
+        let child=document.getElementById("child");
+
+        parent.addEventListener("click",function(){
+            alert("Parent Clicked!");
+        })
+
+        child.addEventListener("click",function(){
+            alert("Child Clicked!");
+            event.stopPropagation();        // Stop the event from bubbling up to the parent
+        })
+    </script>
+</body>
+</html>

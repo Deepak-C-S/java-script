@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> change event</h1>
+    <form>
+        <label>list of foods</label>  
+        <select id="foods">
+            <option value="idli"> idli</option>
+            <option value="dosa"> dosa</option>
+            <option value="puliogare"> puliogare</option>
+            <option value="lemon rice"> lemon rice</option>
+        </select>
+
+    </form>
+
+    <script>
+        let fooddata=document.getElementById("foods");
+        fooddata.addEventListener("change",function(event){
+            console.log(event.target.value)
+            alert("you have selected "+event.target.value)
+        })
+    </script>
+</body>
+</html>
