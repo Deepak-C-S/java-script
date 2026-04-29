@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Signup Form</title>
+    <style>
+        :root {
+            --text: #102033;
+            --muted: #64748b;
+            --line: #d8e0ea;
+            --primary: #0f766e;
+            --primary-dark: #115e59;
+            --error: #b91c1c;
+            --success: #166534;
+            --soft: #f8fbfd;
+            --shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background: #ffffff;
+            padding: 32px 16px;
+        }
+
+        .signup-shell {
+            width: min(760px, 100%);
+            margin: 0 auto;
+            background: #ffffff;
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            padding: 28px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            padding: 7px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: var(--soft);
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        h1 {
+            margin: 14px 0 10px;
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            line-height: 1.12;
+        }
+
+        .subtitle {
+            margin: 0 0 24px;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        form {
+            margin-top: 12px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .field.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="password"] {
+            width: 100%;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 13px 14px;
+            font: inherit;
+            color: var(--text);
+            background: var(--soft);
+            outline: none;
+            transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+        }
+
+        input:focus {
+            background: #fff;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.10);
+        }
+
+        input.invalid {
+            border-color: var(--error);
+            box-shadow: 0 0 0 4px rgba(185, 28, 28, 0.08);
+        }
+
+        .gender-group {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .gender-option {
+            position: relative;
+        }
+
+        .gender-option input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .gender-option span {
+            display: block;
+            padding: 12px 14px;
+            border-radius: 14px;
+            border: 1px solid var(--line);
+            background: var(--soft);
+            text-align: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+        }
+
+        .gender-option input:checked + span {
+            background: #fff;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.10);
+        }
+
+        .terms-box {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 14px 15px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: var(--soft);
+        }
+
+        .terms-box input {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            accent-color: var(--primary);
+            box-shadow: none;
+        }
+
+        .terms-box label {
+            font-weight: 600;
+            color: #334155;
+            line-height: 1.5;
+        }
+
+        .error {
+            min-height: 18px;
+            font-size: 0.88rem;
+            color: var(--error);
+        }
+
+        .actions {
+            margin-top: 18px;
+            display: flex;
+            gap: 12px;
+        }
+
+        button {
+            border: none;
+            border-radius: 999px;
+            padding: 13px 18px;
+            font: inherit;
+            font-weight: 800;
+            cursor: pointer;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+        }
+
+        .submit-btn {
+            flex: 1;
+            color: #fff;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            box-shadow: 0 12px 20px rgba(15, 118, 110, 0.16);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 14px 24px rgba(15, 118, 110, 0.22);
+        }
+
+        .reset-btn {
+            background: #e2e8f0;
+            color: #334155;
+        }
+
+        .message {
+            margin-top: 16px;
+            padding: 14px 16px;
+            border-radius: 16px;
+            display: none;
+            line-height: 1.55;
+        }
+
+        .message.success {
+            color: var(--success);
+            background: rgba(22, 101, 52, 0.08);
+            border: 1px solid rgba(22, 101, 52, 0.16);
+        }
+
+        .message.error {
+            color: var(--error);
+            background: rgba(185, 28, 28, 0.06);
+            border: 1px solid rgba(185, 28, 28, 0.14);
+        }
+
+        @media (max-width: 640px) {
+            .signup-shell {
+                padding: 22px;
+                border-radius: 18px;
+            }
+
+            .grid,
+            .gender-group {
+                grid-template-columns: 1fr;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .submit-btn,
+            .reset-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="signup-shell">
+        <div class="eyebrow">Secure signup</div>
+        <h1>Create your account.</h1>
+        <p class="subtitle">A clean signup form with professional spacing, a white bordered layout, and strong client-side validation.</p>
+
+        <form id="signupForm" novalidate>
+            <div class="grid">
+                <div class="field">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name">
+                    <div class="error" id="nameError"></div>
+                </div>
+
+                <div class="field">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Choose a username">
+                    <div class="error" id="usernameError"></div>
+                </div>
+
+                <div class="field">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob">
+                    <div class="error" id="dobError"></div>
+                </div>
+
+                <div class="field">
+                    <label>Gender</label>
+                    <div class="gender-group" role="radiogroup" aria-label="Gender">
+                        <label class="gender-option">
+                            <input type="radio" name="gender" value="Male">
+                            <span>Male</span>
+                        </label>
+                        <label class="gender-option">
+                            <input type="radio" name="gender" value="Female">
+                            <span>Female</span>
+                        </label>
+                        <label class="gender-option">
+                            <input type="radio" name="gender" value="Other">
+                            <span>Other</span>
+                        </label>
+                    </div>
+                    <div class="error" id="genderError"></div>
+                </div>
+
+                <div class="field full">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Create a strong password">
+                    <div class="error" id="passwordError"></div>
+                </div>
+
+                <div class="field full">
+                    <label for="confirmPassword">Re-enter Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password">
+                    <div class="error" id="confirmPasswordError"></div>
+                </div>
+
+                <div class="field full">
+                    <div class="terms-box">
+                        <input type="checkbox" id="terms" name="terms">
+                        <label for="terms">I agree to the terms and conditions and confirm my details are correct.</label>
+                    </div>
+                    <div class="error" id="termsError"></div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button type="submit" class="submit-btn">Create Account</button>
+                <button type="reset" class="reset-btn">Clear</button>
+            </div>
+
+            <div class="message success" id="successMessage">Your signup form has been submitted successfully.</div>
+            <div class="message error" id="formMessage"></div>
+        </form>
+    </main>
+
+    <script>
+        const form = document.getElementById("signupForm");
+        const nameInput = document.getElementById("name");
+        const usernameInput = document.getElementById("username");
+        const dobInput = document.getElementById("dob");
+        const passwordInput = document.getElementById("password");
+        const confirmPasswordInput = document.getElementById("confirmPassword");
+        const termsInput = document.getElementById("terms");
+
+        const nameError = document.getElementById("nameError");
+        const usernameError = document.getElementById("usernameError");
+        const dobError = document.getElementById("dobError");
+        const genderError = document.getElementById("genderError");
+        const passwordError = document.getElementById("passwordError");
+        const confirmPasswordError = document.getElementById("confirmPasswordError");
+        const termsError = document.getElementById("termsError");
+        const successMessage = document.getElementById("successMessage");
+        const formMessage = document.getElementById("formMessage");
+
+        function setError(input, errorElement, message) {
+            if (input) {
+                input.classList.add("invalid");
+            }
+            errorElement.textContent = message;
+        }
+
+        function clearError(input, errorElement) {
+            if (input) {
+                input.classList.remove("invalid");
+            }
+            errorElement.textContent = "";
+        }
+
+        function selectedGender() {
+            return document.querySelector('input[name="gender"]:checked');
+        }
+
+        function calculateAge(dateString) {
+            const dob = new Date(dateString);
+            const today = new Date();
+            let age = today.getFullYear() - dob.getFullYear();
+            const monthDiff = today.getMonth() - dob.getMonth();
+
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
+
+            return age;
+        }
+
+        function isStrongPassword(value) {
+            return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/.test(value);
+        }
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let isValid = true;
+            successMessage.style.display = "none";
+            formMessage.style.display = "none";
+
+            const nameValue = nameInput.value.trim();
+            const usernameValue = usernameInput.value.trim();
+            const dobValue = dobInput.value;
+            const passwordValue = passwordInput.value;
+            const confirmPasswordValue = confirmPasswordInput.value;
+
+            if (nameValue.length < 2 || !/^[A-Za-z][A-Za-z\s'.-]*$/.test(nameValue)) {
+                setError(nameInput, nameError, "Enter a valid full name.");
+                isValid = false;
+            } else {
+                clearError(nameInput, nameError);
+            }
+
+            if (!/^[A-Za-z0-9_]{4,16}$/.test(usernameValue)) {
+                setError(usernameInput, usernameError, "Username must be 4 to 16 characters and may use letters, numbers, or _.");
+                isValid = false;
+            } else {
+                clearError(usernameInput, usernameError);
+            }
+
+            if (!dobValue) {
+                setError(dobInput, dobError, "Select your date of birth.");
+                isValid = false;
+            } else if (calculateAge(dobValue) < 13) {
+                setError(dobInput, dobError, "You must be at least 13 years old.");
+                isValid = false;
+            } else {
+                clearError(dobInput, dobError);
+            }
+
+            if (!selectedGender()) {
+                genderError.textContent = "Please choose a gender option.";
+                isValid = false;
+            } else {
+                genderError.textContent = "";
+            }
+
+            if (!isStrongPassword(passwordValue)) {
+                setError(passwordInput, passwordError, "Use 8+ characters with uppercase, lowercase, number, and symbol.");
+                isValid = false;
+            } else {
+                clearError(passwordInput, passwordError);
+            }
+
+            if (confirmPasswordValue !== passwordValue || confirmPasswordValue === "") {
+                setError(confirmPasswordInput, confirmPasswordError, "Passwords do not match.");
+                isValid = false;
+            } else {
+                clearError(confirmPasswordInput, confirmPasswordError);
+            }
+
+            if (!termsInput.checked) {
+                termsError.textContent = "You must accept the terms and conditions.";
+                isValid = false;
+            } else {
+                termsError.textContent = "";
+            }
+
+            if (isValid) {
+                successMessage.style.display = "block";
+                form.reset();
+            } else {
+                formMessage.textContent = "Please fix the highlighted fields and try again.";
+                formMessage.style.display = "block";
+            }
+        });
+
+        form.addEventListener("reset", function () {
+            [
+                [nameInput, nameError],
+                [usernameInput, usernameError],
+                [dobInput, dobError],
+                [passwordInput, passwordError],
+                [confirmPasswordInput, confirmPasswordError]
+            ].forEach(([input, errorElement]) => clearError(input, errorElement));
+
+            genderError.textContent = "";
+            termsError.textContent = "";
+            successMessage.style.display = "none";
+            formMessage.style.display = "none";
+            formMessage.textContent = "";
+        });
+    </script>
+</body>
+</html>
