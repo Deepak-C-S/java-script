@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Timer Example</h1>
+    <p>Check the console for timer outputs.</p>
+
+
+    <script>
+        setTimeout(function() {
+            alert("Welcome to JavaScript!");
+        }, 2000); 
+
+        let sayhello=()=>{
+            alert("Hello, this is a repeated message!");
+        }
+        setTimeout(sayhello, 4000);
+
+        setInterval(function() {
+            alert("UUUTA AYTHA");
+        }, 10000); // 1000 milliseconds = 1 second
+
+        let intervalId = ()=> {
+            alert("This will repeat every 5 seconds.");
+        } 
+        setInterval(intervalId, 5000); // Repeats every 5 seconds
+
+        clearInterval(intervalId, 5000); // Stops the interval after 5 seconds
+    </script>
+</body>
+</html> 
