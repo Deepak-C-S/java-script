@@ -3,6 +3,8 @@
 // Object destructuring is a convenient way to extract values from objects and assign them to variables.
 // It was introduced in ES6 (ECMAScript 2015).
 
+//destructive ? No, it does not change the original object. 
+// It creates new variables and assigns values to them based on the properties of the object.
 
 //: Object Destructuring
 
