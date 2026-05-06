@@ -19,6 +19,13 @@
 //|    V                                                        V
 //|  then()                                                   catch()
 
-
+// Creating a promise
+let promiseDemo = new Promise((resolve, reject) => {
+    if(false) {
+        resolve("Promise resolved successfully");
+    } else {
+        reject("Promise rejected");
+    }
+});
 
 
