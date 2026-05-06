@@ -7,17 +7,17 @@
 //* 2. Fulfilled : The operation completed successfully, and the promise has a resolved value.
 //* 3. Rejected : The operation failed, and the promise has a reason for the failure (error).    
 
-//|                              PROMISE
-//|                                 |
-//|    ---------------------------------------------------------
-//|    |                            |                           |
-//|   Fulfilled                  pending                     Rejected
-//|    |                            |                           |
-//|    V                            V                           V
-//|   resolve()                                             reject()
-//|    |                                                        |
-//|    V                                                        V
-//|  then()                                                   catch()
+//+|                              PROMISE
+//+|                                 |
+//+|    ---------------------------------------------------------
+//+|    |                            |                           |
+//+|   Fulfilled                  pending                     Rejected
+//+|    |                            |                           |
+//+|    V                            V                           V
+//+|  resolve()                                             reject()
+//+|    |                                                        |
+//+|    V                                                        V
+//+|  then()                                                   catch()
 
 //: Creating a promise
 let promiseDemo = new Promise((resolve, reject) => {
@@ -36,4 +36,6 @@ promiseDemo.then((result) => {
 }).catch((error) => {
     console.log(error);
 });
+
+
 
