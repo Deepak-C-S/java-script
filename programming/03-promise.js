@@ -19,7 +19,7 @@
 //|    V                                                        V
 //|  then()                                                   catch()
 
-// Creating a promise
+//: Creating a promise
 let promiseDemo = new Promise((resolve, reject) => {
     if(false) {
         resolve("Promise resolved successfully");
@@ -28,4 +28,12 @@ let promiseDemo = new Promise((resolve, reject) => {
     }
 });
 
+
+
+//: Handling a promise
+promiseDemo.then((result) => {
+    console.log(result);
+}).catch((error) => {
+    console.log(error);
+});
 
