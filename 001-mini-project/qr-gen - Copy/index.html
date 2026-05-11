@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Custom QR Code Generator</title>
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <!-- QR Code Styling library -->
+        <script src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+</head>
+<body>
+        <main class="container">
+            <section class="panel">
+                <h1>Custom QR Generator</h1>
+
+                <form id="qr-form">
+                    <label>URL or Text
+                        <input type="url" id="website" name="website" placeholder="https://example.com" required>
+                    </label>
+
+                    <div class="row">
+                        <label>Size
+                            <input type="range" id="size" min="100" max="600" value="250">
+                        </label>
+                        <span id="size-value">250</span>px
+                    </div>
+
+                    <div class="row">
+                        <label>Dot Style
+                            <select id="dot-style">
+                                <option value="square">Square</option>
+                                <option value="rounded">Rounded</option>
+                                <option value="dots">Dots</option>
+                                <option value="classy">Classy</option>
+                            </select>
+                        </label>
+
+                        <label>Corner Style
+                            <select id="corner-style">
+                                <option value="square">Square</option>
+                                <option value="rounded">Rounded</option>
+                                <option value="extra-rounded">Extra Rounded</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="row">
+                        <label>Foreground
+                            <input type="color" id="fg-color" value="#000000">
+                        </label>
+                        <label>Background
+                            <input type="color" id="bg-color" value="#ffffff">
+                        </label>
+                    </div>
+
+                    <div class="row">
+                        <label>Margin
+                            <input type="number" id="margin" min="0" max="40" value="10">
+                        </label>
+                        <label>Logo (optional)
+                            <input type="file" id="logo-input" accept="image/*">
+                        </label>
+                    </div>
+
+                    <details>
+                        <summary>Border / Frame options</summary>
+                        <div class="row">
+                            <label>Border Width
+                                <input type="number" id="border-width" min="0" max="40" value="0">
+                            </label>
+                            <label>Border Radius
+                                <input type="number" id="border-radius" min="0" max="80" value="8">
+                            </label>
+                            <label>Border Color
+                                <input type="color" id="border-color" value="#000000">
+                            </label>
+                        </div>
+                    </details>
+
+                    <div class="actions">
+                        <button type="submit" id="generate-btn">Update Preview</button>
+                        <button type="button" id="download-btn">Download PNG</button>
+                        <button type="button" id="download-svg-btn">Download SVG</button>
+                    </div>
+                </form>
+            </section>
+
+            <aside class="preview">
+                <div id="qrcode-wrapper">
+                    <div id="qrcode"></div>
+                </div>
+            </aside>
+        </main>
+
+        <script type="text/javascript" src="index.js"></script>
+</body>
+</html>
