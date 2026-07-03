@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <main class="page">
+        <section class="calculator" aria-label="scientific calculator">
+            <div class="display-row">
+                <input type="text" class="display-box" id="result" aria-label="calculator display" readonly>
+                <button class="btn action" type="button" onclick="clearScreen()">C</button>
+                <button class="btn action" type="button" onclick="backspace()">DEL</button>
+            </div>
+
+            <div class="grid">
+                <button class="btn function" type="button" onclick="display('(')">(</button>
+                <button class="btn function" type="button" onclick="display(')')">)</button>
+                <button class="btn function" type="button" onclick="display('%')">%</button>
+                <button class="btn operator" type="button" onclick="display('^')">^</button>
+
+                <button class="btn function" type="button" onclick="applyUnary('sin')">sin</button>
+                <button class="btn function" type="button" onclick="applyUnary('cos')">cos</button>
+                <button class="btn function" type="button" onclick="applyUnary('tan')">tan</button>
+                <button class="btn function" type="button" onclick="display('log(')">log</button>
+
+                <button class="btn function" type="button" onclick="display('ln(')">ln</button>
+                <button class="btn function" type="button" onclick="applyUnary('sqrt')">√</button>
+                <button class="btn function" type="button" onclick="applyUnary('square')">x²</button>
+                <button class="btn function" type="button" onclick="applyUnary('inverse')">1/x</button>
+
+                <button class="btn function" type="button" onclick="insertConstant('π')">π</button>
+                <button class="btn function" type="button" onclick="insertConstant('e')">e</button>
+                <button class="btn" type="button" onclick="display('7')">7</button>
+                <button class="btn operator" type="button" onclick="display('/')">/</button>
+
+                <button class="btn" type="button" onclick="display('8')">8</button>
+                <button class="btn" type="button" onclick="display('9')">9</button>
+                <button class="btn operator" type="button" onclick="display('*')">*</button>
+                <button class="btn operator" type="button" onclick="display('-')">-</button>
+
+                <button class="btn" type="button" onclick="display('4')">4</button>
+                <button class="btn" type="button" onclick="display('5')">5</button>
+                <button class="btn" type="button" onclick="display('6')">6</button>
+                <button class="btn operator" type="button" onclick="display('+')">+</button>
+
+                <button class="btn" type="button" onclick="display('1')">1</button>
+                <button class="btn" type="button" onclick="display('2')">2</button>
+                <button class="btn" type="button" onclick="display('3')">3</button>
+                <button class="btn equals" type="button" onclick="calculate()">=</button>
+
+                <button class="btn" type="button" onclick="display('0')">0</button>
+                <button class="btn" type="button" onclick="display('.')">.</button>
+                <button class="btn operator" type="button" onclick="display('^')">^</button>
+                <button class="btn action" type="button" onclick="clearScreen()">AC</button>
+            </div>
+        </section>
+    </main>
+
+    <script type="text/javascript" src="index.js"></script>
+</body>
+</html>

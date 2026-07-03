@@ -1,6 +1,6 @@
 //! 01-closure.js
 
-// It is technique to access of outer function variable insider inner function
+// It is technique to access of outer function variable inside inner function
 // Closures can be defined as a js feature in which the inner function has access to the outer (enclosing) function's variables 
 // js every time a closure is created with the creation of a function.
 

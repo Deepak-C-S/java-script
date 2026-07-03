@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Random Password Generator</title>
+	<link rel="stylesheet" href="index.css">
+</head>
+<body>
+	<main class="page">
+		<section class="generator-card" aria-label="random password generator">
+			<h1>Random Password</h1>
+			<p class="subtitle">Fixed 8 characters.</p>
+
+			<div class="password-panel">
+				<input id="password" class="password-field" type="text" readonly aria-label="generated password">
+			</div>
+
+			<div class="button-row">
+				<button id="generateBtn" class="generate-button" type="button">Generate</button>
+				<button id="copyBtn" class="icon-button" type="button">Copy</button>
+			</div>
+		</section>
+	</main>
+
+	<script src="index.js"></script>
+</body>
+</html>

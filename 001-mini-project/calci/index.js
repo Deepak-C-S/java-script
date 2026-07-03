@@ -1,34 +1,30 @@
 const display = document.getElementById("display");
 const buttons = document.querySelectorAll(".btn");
 
-buttons.forEach((button) => {
-	button.addEventListener("click", () => {
-		const action = button.dataset.action;
-		const value = button.dataset.value;
+buttons.forEach(function(button){
 
-		if (action === "clear") {
-			display.value = "";
-			return;
-		}
+    button.onclick = function(){
 
-		if (action === "equals") {
-			if (display.value.trim() === "") {
-				return;
-			}
+        let value = button.innerHTML;
 
-			try {
-				// Evaluate only controlled button input from this UI.
-				display.value = String(Function(`"use strict"; return (${display.value})`)());
-			} catch {
-				display.value = "Error";
-			}
-			return;
-		}
+        if(value == "C"){
+            display.value = "";
+        }
 
-		if (display.value === "Error") {
-			display.value = "";
-		}
+        else if(value == "="){
 
-		display.value += value;
-	});
+            if(display.value != ""){
+                display.value = eval(display.value);
+            }
+
+        }
+
+        else{
+
+            display.value += value;
+
+        }
+
+    };
+
 });

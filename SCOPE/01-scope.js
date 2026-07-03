@@ -66,3 +66,5 @@ lexicalScopeExample();
 //                                                                    TDZ-> Temporal Dead Zone
 
 
+// TDZ-> Temporal Dead Zone:
+// The temporal dead zone (TDZ) is a behavior in JavaScript where variables declared with let and const are not accessible until they are initialized.

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tax Calculator</h1>
+        
+        <div class="input-group">
+            <label>Amount</label>
+            <input type="number" id="amount" value="0">
+        </div>
+
+        <div class="input-group">
+            <label>Tax Rate (%)</label>
+            <input type="number" id="taxRate" value="10">
+        </div>
+
+        <div class="results">
+            <div class="result">
+                <span>Current Rs</span>
+                <span id="current">₹0.00</span>
+            </div>
+            <div class="result">
+                <span>Tax Added Rs</span>
+                <span id="taxAmount">₹0.00</span>
+            </div>
+            <div class="result">
+                <span>Total Rs</span>
+                <span id="total">₹0.00</span>
+            </div>
+        </div>
+
+        <button id="resetBtn">Reset</button>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
